@@ -10,6 +10,7 @@ RUN dotnet restore
 # copy everything else and build app
 COPY Nortal.WebApi/. ./Nortal.WebApi/
 WORKDIR /app/Nortal.WebApi
+ENV ASPNETCORE_ENVIRONMENT=Production
 RUN dotnet publish -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS runtime

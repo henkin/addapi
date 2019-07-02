@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: addapi
+spec:
+  selector:
+    matchLabels:
+      app: addapi
+      tier: backend
+      track: stable
+  replicas: 7
+  template:
+    metadata:
+      labels:
+        app: addapi
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: addapi
+          image: "docker.io/henkin/addapi"
+          ports:
+            - name: http
+              containerPort: 80

@@ -13,6 +13,9 @@ namespace Nortal.WebApi.Controllers
     [ApiController]
     public class AddController : ControllerBase
     {
+        [HttpGet]
+        public string Get() => "up";
+        
         [HttpPost]
         public int Post([FromBody] AddValues data)
         {
